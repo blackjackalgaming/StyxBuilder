@@ -31,8 +31,10 @@ class HadesStage(QGraphicsView):
     structure_changed = Signal()
 
     def __init__(self):
+        super().__init__()
         scene = QGraphicsScene(0, 0, 1920, 1080)
-        super().__init__(scene)
+        self._scene = scene
+        self.setScene(scene)
         self.project = None
         self.notify_change = lambda: None
         self.setRenderHint(QPainter.RenderHint.SmoothPixmapTransform)
